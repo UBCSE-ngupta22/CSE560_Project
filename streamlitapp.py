@@ -1,8 +1,14 @@
 import streamlit as st
 import plotly.express as px
 
+# Set page title and icon
+st.set_page_config(page_title="Inventory Management System", page_icon=":bar_chart:")
+
 # Initialize connection.
 conn = st.connection("postgresql", type="sql")
+
+# Add title
+st.title("Inventory Management System")
 
 # Query 1: Product Sales Over Time
 query_1 = "SELECT OrderDate, SUM(PerUnitPrice * OrderItemQuantity) AS TotalSales FROM OrderItem JOIN OrderTable ON OrderItem.OrderID = OrderTable.OrderID GROUP BY OrderDate;"
@@ -91,5 +97,4 @@ query_10 = "SELECT OrderDate, AVG(PerUnitPrice * OrderItemQuantity) AS AverageOr
 df_10 = conn.query(query_10, ttl="10m")
 st.subheader("Average Order Value Over Time")
 st.line_chart(df_10.set_index('orderdate'))
-
 
