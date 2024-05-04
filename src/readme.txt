@@ -18,6 +18,7 @@ To effectively utilize the dataset, it was organized into multiple tables within
 8. OrderItem: Contains information about individual items within orders including quantity, price, and associated product and order.
 
 To populate these tables with data, dummy data was generated using SQL queries to simulate a real-world scenario. Each table was filled with relevant information to demonstrate the functionality of the inventory management system.
+Since, dummy data was used we don't use create.sql or load.sql
 
 Below are the SQL queries used to populate the tables:
 
